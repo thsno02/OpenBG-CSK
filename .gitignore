@@ -1,0 +1,5 @@
+bert_pretrain/bert-chinese-wwm/config.json
+bert_pretrain/bert-chinese-wwm/pytorch_model.bin
+bert_pretrain/bert-chinese-wwm/vocab.txt
+.DS_Store
+bert_pretrain/.DS_Store
