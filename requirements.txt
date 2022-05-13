@@ -2,3 +2,5 @@ botocore
 boto3
 regex
 transformers
+torch
+sklearn
