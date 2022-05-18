@@ -15,7 +15,7 @@ parser.add_argument("--do_train", type=bool, default=True, help="Whether to run 
 parser.add_argument("--test_batch", default=200, type=int, help="Test every X updates steps.")
 
 parser.add_argument("--data_dir", default="data", type=str, help="The task data directory.")
-parser.add_argument("--model_dir", default="bert-base-chinese", type=str, help="The directory of pretrained models")
+parser.add_argument("--model_dir", default="bert_pretrain/bert-chinese-wwm", type=str, help="The directory of pretrained models")
 parser.add_argument("--output_dir", default='output/save_dict/', type=str, help="The path of result data and models to be saved.")
 # models param
 parser.add_argument("--max_length", default=256, type=int, help="the max length of sentence.")
@@ -25,7 +25,8 @@ parser.add_argument("--weight_decay", default=0.01, type=float, help="Weight dec
 parser.add_argument("--dropout", default=0.1, type=float, help="Drop out rate")
 parser.add_argument("--epochs", default=10, type=int, help="Total number of training epochs to perform.")
 parser.add_argument('--seed', type=int, default=1, help="random seed for initialization")
-parser.add_argument('--hidden_size', type=int, default=768,  help="random seed for initialization")
+# don't change H arbitrary
+parser.add_argument('--hidden_size', type=int, default=768,  help="H in BERT")
 
 args = parser.parse_args()
 
