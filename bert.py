@@ -14,8 +14,8 @@ class Config(object):
         self.train_path = args.data_dir + '/train_triple.jsonl'  # 训练集
         self.test_path = args.data_dir + '/dev_triple.jsonl'  # 测试集
         self.save_path = args.output_dir  # 模型训练结果
-        self.bert_path = args.model_dir
-        self.test_batch = args.test_batch
+        self.bert_path = args.model_dir   # pre_trained model
+        self.test_batch = args.test_batch 
         self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')   # 设备
         self.num_workers = 1
         self.local_rank = -1
