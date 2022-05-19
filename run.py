@@ -35,10 +35,11 @@ def train_entry():
     start_time = time.time()
     print("Loading data...")
     train_data_all = load_dataset(config.train_path, config)
-    random.shuffle(train_data_all)
-    offset = int(len(train_data_all) * 0.1)
-    dev_data = train_data_all[:offset]
-    train_data = train_data_all[offset:]
+    # random.shuffle(train_data_all)
+    # offset = int(len(train_data_all) * 0.1)
+    # dev_data = train_data_all[:offset]
+    # train_data = train_data_all[offset:]
+    dev_data = load_dataset(config.dev_path, config)
     test_data = load_dataset(config.test_path, config)
     train_iter = DataLoader(
         train_data,
@@ -52,9 +53,9 @@ def train_entry():
                            num_workers=config.num_workers, drop_last=False)
     time_dif = get_time_dif(start_time)
     print("Time usage:", time_dif)
-    # train
+    # @lw: config the model parameters
     model = Model(config).to(config.device)
-
+    # @lw: train model
     train(config, model, train_iter, dev_iter, test_iter)
 
 
