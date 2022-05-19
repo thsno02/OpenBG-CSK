@@ -56,6 +56,9 @@ def train(config, model, train_iter, dev_iter, test_iter, c):
     df.loc[c, 'F1'] = f1
     df.loc[c, 'Precision'] = p
     df.loc[c, 'Recall'] = r
+    # @lw: record time
+    time_dif = get_time_dif(start_time)
+    df.loc[c, 'Time Usage'] = str(time_dif)
     # @lw: save the performance
     df.to_csv('performance.csv', index = True)
     test(config, model, test_iter, c)
@@ -151,6 +154,4 @@ def test(config, model, test_iter, c):
     start_time = time.time()
     predict(config, model, test_iter, c)
     time_dif = get_time_dif(start_time)
-    # @lw: record time
-    df.loc[c, 'Time Usage'] = time_dif
     print("Time usage:", time_dif)
